@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "sleep.io",
+    "slug": "sleep.io",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "sleep.io"
+    },
+    "android": {
+      "package": "sleep.io",
+      "publishBundlePath": "android\\app\\src\\main\\assets\\shell-app.bundle",
+      "publishManifestPath": "android\\app\\src\\main\\assets\\shell-app-manifest.json"
+    },
+    "isDetached": true,
+    "detach": {
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.10.5-sdk32.0.0-6b87ee30-8cbe-4cc6-b5ba-b03b77e34f90.tar.gz"
+    },
+    "scheme": "exp239ae6026e45432ab4f93aa67a1577e3"
+  }
+}
