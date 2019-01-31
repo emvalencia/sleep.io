@@ -1,7 +1,7 @@
-//-------------------------------------------------------------------------------------------------
-// Homescreen contains the main homepage component with a login and signup button (not yet
-// implemented).
-//-------------------------------------------------------------------------------------------------
+/*
+  HomeScreen: contains the homepage for the Sleep.io mobile application
+  TODO: login and signup button implementations
+*/
 import React from 'react';
 import { Icon } from 'native-base';
 import { Button, TouchableOpacity } from 'react-native';
@@ -11,7 +11,8 @@ this._handleLogin = () => {
   console.log('Nothing yet!');
 };
 
-export default class HomeScreen extends React.Component {
+export 
+default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   };

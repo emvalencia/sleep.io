@@ -2,10 +2,16 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import AppReducer from './reducers/AppReducer';
 
 export default class App extends React.Component {
+  store = createStore(AppReducer);
+
   state = {
     isLoadingComplete: false,
+    test: "test"
   };
 
   render() {
@@ -19,10 +25,12 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
-        </View>
+        <Provider store={this.store}>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator/>
+          </View>
+        </Provider>
       );
     }
   }
