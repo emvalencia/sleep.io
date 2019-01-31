@@ -1,7 +1,7 @@
-/*
-  HomeScreen: contains the homepage for the Sleep.io mobile application
-  TODO: login and signup button implementations
-*/
+//-------------------------------------------------------------------------------------------------
+// Homescreen contains the main homepage component with a login and signup button (not yet
+// implemented).
+//-------------------------------------------------------------------------------------------------
 import React from 'react';
 import { Icon } from 'native-base';
 import { Button, TouchableOpacity } from 'react-native';
