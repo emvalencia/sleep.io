@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sleepinessActions from '../actions/index';
 
-class SettingsScreen extends React.Component {
+class SleepinessScreen extends React.Component {
   static navigationOptions = {
     title: 'How Are You Feeling Right Now?'
   };
@@ -100,7 +100,7 @@ class SettingsScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.help}>
           <ButtonNB transparent light onPress={this.displayInfo}>
-            <Icon name="question" />
+            <Icon name="md-question" />
           </ButtonNB>
         </View>
 
@@ -147,7 +147,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SettingsScreen); // <--- call the component here
+)(SleepinessScreen); // <--- call the component here
 
 const styles = StyleSheet.create({
   container: {

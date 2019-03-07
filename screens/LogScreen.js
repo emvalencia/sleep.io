@@ -4,21 +4,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import {
-  Button,
-  Icon,
   Text as TextNB,
-  Thumbnail,
   List,
   ListItem,
-  Body,
-  Left,
-  Right
 } from 'native-base';
 import {
-  VictoryLabel,
   VictoryBar,
   VictoryChart,
-  VictoryTheme,
   VictoryAxis
 } from 'victory-native';
 import { bindActionCreators } from 'redux';
@@ -33,7 +25,7 @@ class LogScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //default data in state
+      /* default data in state before user data entered */
       data: [
         {
           day: 'mon',
@@ -68,7 +60,7 @@ class LogScreen extends React.Component {
     };
   }
 
-  //re-renders the VictoryChart when updated
+  /* re-renders the VictoryChart when updated */
   componentDidMount() {
     this.setStateInterval = window.setInterval(() => {
       this.setState({
@@ -82,7 +74,6 @@ class LogScreen extends React.Component {
   }
 
   render() {
-    console.log('in logs renderer');
     const { sleepinessData } = this.props.SleepinessReducer;
     const { sleepData } = this.props.SleepinessReducer;
     const { sleepinessDayCount } = this.props.SleepinessReducer;
@@ -102,7 +93,7 @@ class LogScreen extends React.Component {
 
     const { data } = this.state;
 
-    // UNCOMMENT WHEN WE USE REAL DATA
+    /* pushes data to map */
     weekAverageMap.forEach((value, key, map) => {
       const average = weekAverageMap.get(key) / sleepinessDayCount[key];
       data.push({
@@ -114,8 +105,7 @@ class LogScreen extends React.Component {
     let chart = null;
     chart = <Text>Need More Than One Event Logged To Render Charts</Text>;
 
-    console.log('re-rendering logs component');
-
+    /* display data on VictoryChart */
     if (data.length > 0) {
       chart = (
         <VictoryChart domainPadding={{ x: 20 }} animate={{ duration: 500 }}>
@@ -176,7 +166,7 @@ class LogScreen extends React.Component {
   }
 }
 
-//redux implementation
+/* redux implementation */
 function mapStateToProps(state) {
   console.log('Log screen grabbing mapStateToProps');
   return {
@@ -221,7 +211,7 @@ const styles = StyleSheet.create({
   }
 });
 
-// victory chart styling
+/* victory chart styling */
 const whiteStyle = {
   axis: { stroke: 'white' },
   axisLabel: { fontSize: 20, padding: 30, fill: 'white' },

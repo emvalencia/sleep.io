@@ -1,7 +1,7 @@
-//-------------------------------------------------------------------------------------------------
-// LinkScreen allows you to long your start and end sleep data and passes that data to props to
-// be rendered by LogScreen.
-//-------------------------------------------------------------------------------------------------
+/*-------------------------------------------------------------------------------------------------
+ * LinkScreen allows you to long your start and end sleep data and passes that data to props to
+ * be rendered by LogScreen.
+ *-------------------------------------------------------------------------------------------------*/
 import React from 'react';
 import { StyleSheet, Text, View, Alert, Button } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -23,7 +23,7 @@ class LinksScreen extends React.Component {
     startDay: ''
   };
 
-  //listens and updates the state of our component
+  /* listens and updates the state of our component */
   componentDidUpdate(prevProps, prevState, snapshot) {
     const { startDay, startTime, endTime } = this.state;
 
@@ -96,7 +96,7 @@ class LinksScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.help}>
           <ButtonNB transparent light onPress={this.displayInfo}>
-            <Icon name="question" />
+            <Icon name="md-question" />
           </ButtonNB>
         </View>
 
