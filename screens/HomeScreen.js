@@ -7,12 +7,7 @@ import { Icon } from 'native-base';
 import { Button, TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 
-this._handleLogin = () => {
-  console.log('Nothing yet!');
-};
-
-export 
-default class HomeScreen extends React.Component {
+export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -20,25 +15,11 @@ default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>sleep.io</Text>
-        <Icon name="cloud" style={{ color: 'white', padding: 15 }} />
-        <View style={styles.buttonRow}>
-          <Button
-            title="Login"
-            color="#906090"
-            style={{ borderRadius: 5 }}
-            hardwareAccelerated
-            onPress={() => this._handleLogin}
-          />
+        <View>
+          <Text style={styles.text}>How much sleep you've logged so far today</Text>
         </View>
-        <View style={styles.buttonRow}>
-          <Button
-            title="Sign Up"
-            color="#906090"
-            style={{ borderRadius: 5 }}
-            hardwareAccelerated
-            onPress={() => this._handleLogin}
-          />
+        <View>
+          <Text style={styles.text}>How much sleep/certain times recommended</Text>
         </View>
       </View>
     );
