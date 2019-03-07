@@ -4,12 +4,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import SleepinessScreen from '../screens/SleepinessScreen';
 import LogScreen from '../screens/LogScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -36,11 +36,11 @@ LinksStack.navigationOptions = {
   )
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen
+const SleepinessStack = createStackNavigator({
+  Sleepiness: SleepinessScreen
 });
 
-SettingsStack.navigationOptions = {
+SleepinessStack.navigationOptions = {
   tabBarLabel: 'Sleepiness',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -64,9 +64,24 @@ LogStack.navigationOptions = {
   )
 };
 
+const SearchStack = createStackNavigator({
+  Searches: SearchScreen
+});
+
+SearchStack.navigationOptions = {
+  tabBarLabel: 'Search',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}
+    />
+  )
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
-  LogStack
+  SleepinessStack,
+  LogStack,
+  SearchStack
 });
