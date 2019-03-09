@@ -51,9 +51,7 @@ class SleepinessScreen extends React.Component {
     const sleepinessDay = this.convertDay(new Date().getDay());
 
     const { sleepinessRating } = this.state;
-    // console.log('Sleepy rating: ', sleepinessRating);
-    // console.log('Sleepiness logged: ', sleepinessDate);
-    Alert.alert('', this.state.sleepinessRating > 5 ? 'Y U No Sleep?!' : 'U good');
+    Alert.alert('', this.state.sleepinessRating > 6 ? ' :( ' : ' :) ');
 
     addLogSleepiness({ sleepinessRating, sleepinessDate, sleepinessDay });
   };
@@ -61,7 +59,7 @@ class SleepinessScreen extends React.Component {
   displayInfo = () => {
     Alert.alert(
       'INFO',
-      'Move the slider to rate how sleepy you feel right now on a scale of 1 to 7. 1 = not sleepy at all. 7 = extremely tired. Then click on the "Record My Sleepiness" button below to submit your log!'
+      'Move the slider to rate how sleepy you feel right now on a scale of 1 to 10. 1 = not sleepy at all. 10 = extremely tired. Then click on the "Record My Sleepiness" button below to submit your log!'
     );
   };
 
@@ -70,27 +68,33 @@ class SleepinessScreen extends React.Component {
     console.log('this.state :', this.state);
     const { sleepinessRating } = this.state;
     switch (sleepinessRating) {
-      case 1:
+      case 10:
         return '#906090';
-      case 2:
-        return '#7B7196';
-      case 3:
-        return '#67839C';
-      case 4:
-        return '#5294A3';
-      case 5:
-        return '#3DA5A9';
-      case 6:
-        return '#29B7AF';
+      case 9:
+        return '#856993';
+      case 8:
+        return '#797397';
       case 7:
-        return '#14C8B5';
+        return '#6E7C9A';
+      case 6:
+        return '#63869D';
+      case 5:
+        return '#588FA1';
+      case 4:
+        return '#4C99A4';
+      case 3:
+        return '#41A2A8';
+      case 2:
+        return '#36ACAB';
+      case 1:
+        return '#2BB5AE';
     }
   }
 
   render() {
     const { sleepinessRating } = this.state;
     const { addLogSleepiness } = this.props;
-    // console.log('sleepiness :', this.props.SleepinessReducer);
+    console.log('sleepiness :', this.props.SleepinessReducer);
 
     const sliderColor = this.getSliderColor();
 
@@ -109,7 +113,7 @@ class SleepinessScreen extends React.Component {
           <Slider
             step={1}
             minimumValue={1}
-            maximumValue={7}
+            maximumValue={10}
             onValueChange={this.change.bind(this)}
             value={sleepinessRating}
             thumbTintColor={sliderColor}
