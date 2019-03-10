@@ -8,7 +8,15 @@ import {
 } from '../actions/index';
 
 const initialState = {
-  profileData: [],
+  profileData: {
+    firstName: 'First',
+    lastName: 'Last',
+    age: 25,
+    sex: 'female',
+    weight: 125,
+    height: 5,
+    medicalConditions: []
+  },
   sleepData: [],
   sleepinessData: [],
   sleepinessDayCount: {

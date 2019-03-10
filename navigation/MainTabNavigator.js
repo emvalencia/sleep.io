@@ -11,10 +11,11 @@ import SleepinessScreen from '../screens/SleepinessScreen';
 import LogScreen from '../screens/LogScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen
+    Home: { screen: HomeScreen }
   },
   {
     initialRouteName: 'Home'
@@ -38,7 +39,7 @@ HomeStack.navigationOptions = {
 };
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen
+  Links: { screen: LinksScreen }
 });
 
 LinksStack.navigationOptions = {
@@ -52,7 +53,7 @@ LinksStack.navigationOptions = {
 };
 
 const SleepinessStack = createStackNavigator({
-  Sleepiness: SleepinessScreen
+  Sleepiness: { screen: SleepinessScreen }
 });
 
 SleepinessStack.navigationOptions = {
@@ -66,7 +67,7 @@ SleepinessStack.navigationOptions = {
 };
 
 const LogStack = createStackNavigator({
-  Logs: LogScreen
+  Logs: { screen: LogScreen }
 });
 
 LogStack.navigationOptions = {
@@ -80,7 +81,10 @@ LogStack.navigationOptions = {
 };
 
 const ProfileStack = createStackNavigator({
-  Profiles: ProfileScreen
+  Profile: { screen: ProfileScreen },
+  EditProfile: {
+    screen: EditProfileScreen
+  }
 });
 
 ProfileStack.navigationOptions = {
@@ -94,7 +98,7 @@ ProfileStack.navigationOptions = {
 };
 
 const SearchStack = createStackNavigator({
-  Searches: SearchScreen
+  Searches: { screen: SearchScreen }
 });
 
 SearchStack.navigationOptions = {
