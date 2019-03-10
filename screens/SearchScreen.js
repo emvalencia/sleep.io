@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from 'native-base';
 import { Button, TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
-
+import {SearchBar} from 'react-native-elements';
 this._handleLogin = () => {
   console.log('Nothing yet!');
 };
@@ -13,11 +13,26 @@ default class HomeScreen extends React.Component {
     header: null
   };
 
+  state = { search: ''.};
+
+  updateSearch = search => 
+  {
+    this.setState({search});
+  };
+
   render() {
+    const {search } =this.state;
+
     return (
       <View style={styles.container}>
       
         <Text style={styles.text}>Search Screen TBD</Text>
+     <SearchBar
+            placeholder = "Search..."
+            onChangeText={this.updateSearch} 
+            value={search}
+
+      />
        
       </View>
     );
