@@ -1,20 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add moment
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add raect-native-elements
 
 PATH: 
-  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Emery\bin;C:\Program Files\MiniConda;C:\Program Files\MiniConda\Library\mingw-w64\bin;C:\Program Files\MiniConda\Library\usr\bin;C:\Program Files\MiniConda\Library\bin;C:\Program Files\MiniConda\Scripts;C:\Users\Emery\AppData\Local\Programs\Python\Python36;C:\Users\Emery\AppData\Local\Programs\Python\Python36\scripts;C:\Python27;C:\Python27\Scripts;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Maven\apache-maven-3.5.4\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Microsoft VS Code\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Users\Emery\Anaconda3;C:\Users\Emery\Anaconda3\Library\mingw-w64\bin;C:\Users\Emery\Anaconda3\Library\usr\bin;C:\Users\Emery\Anaconda3\Library\bin;C:\Users\Emery\Anaconda3\Scripts;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\Emery\AppData\Local\Microsoft\WindowsApps;C:\Program Files\nodejs\node_modules\npm\bin;C:\Users\Emery\AppData\Local\GitHubDesktop\bin;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Users\Emery\AppData\Roaming\npm;C:\Users\Emery\AppData\Local\Yarn\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Streamlink\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\PuTTY\;C:\Users\Raymond 2\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\Raymond 2\AppData\Local\GitHubDesktop\bin;C:\Users\Raymond 2\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Raymond 2\AppData\Roaming\npm;C:\Users\Raymond 2\AppData\Local\Yarn\bin;C:\Program Files\Java\jdk1.8.0_201\bin;
 
 Yarn version: 
-  1.12.3
+  1.13.0
 
 Node version: 
-  10.13.0
+  11.9.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\repos\sleep.io\node_modules\.cache\@babel\register'
+  Error: https://registry.yarnpkg.com/raect-native-elements: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65364:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:129397:22)
+      at Request.emit (events.js:197:13)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:130369:10)
+      at Request.emit (events.js:197:13)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:130291:12)
+      at Object.onceWrapper (events.js:285:13)
+      at IncomingMessage.emit (events.js:202:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at processTicksAndRejections (internal/process/next_tick.js:76:17)
 
 npm manifest: 
   {

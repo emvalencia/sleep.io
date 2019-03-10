@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from 'native-base';
 import { Button, TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
-import {SearchBar} from 'react-native-elements';
+import SearchBar from 'react-native-searchbar';
 this._handleLogin = () => {
   console.log('Nothing yet!');
 };
@@ -13,24 +13,51 @@ default class HomeScreen extends React.Component {
     header: null
   };
 
-  state = { search: ''.};
+  state = { search: '',};
 
-  updateSearch = search => 
+  _handleResults(results)
   {
-    this.setState({search});
+    this.setState({results});
   };
+
 
   render() {
     const {search } =this.state;
+  const items = [
+  1337,
+  'janeway',
+  {
+    lots: 'of',
+    different: {
+      types: 0,
+      data: false,
+      that: {
+        can: {
+          be: {
+            quite: {
+              complex: {
+                hidden: [ 'gold!' ],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  [ 4, 2, 'tree' ],
+];
 
     return (
       <View style={styles.container}>
       
         <Text style={styles.text}>Search Screen</Text>
      <SearchBar
-            placeholder = "Search..."
-            onChangeText={this.updateSearch} 
-            value={search}
+            ref={(ref) => this.searchBar = ref}
+            data = {items}
+            handleResults={this._handleResults}
+            
+            showOnLoad
+
 
       />
 
@@ -60,4 +87,6 @@ const styles = StyleSheet.create({
     padding: 25,
     fontSize: 40
   }
-});
+}
+
+);
