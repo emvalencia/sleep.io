@@ -10,6 +10,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SleepinessScreen from '../screens/SleepinessScreen';
 import LogScreen from '../screens/LogScreen';
 import SearchScreen from '../screens/SearchScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const HomeStack = createStackNavigator(
   {
@@ -78,6 +79,20 @@ LogStack.navigationOptions = {
   )
 };
 
+const ProfileStack = createStackNavigator({
+  Profiles: ProfileScreen
+});
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-person` : 'md-person'}
+    />
+  )
+};
+
 const SearchStack = createStackNavigator({
   Searches: SearchScreen
 });
@@ -97,5 +112,6 @@ export default createBottomTabNavigator({
   LinksStack,
   SleepinessStack,
   LogStack,
-  SearchStack
+  SearchStack,
+  ProfileStack
 });

@@ -96,7 +96,7 @@ class LinksScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.help}>
           <ButtonNB transparent light onPress={this.displayInfo}>
-            <Icon name="md-question" />
+            <Icon name="md-help" />
           </ButtonNB>
         </View>
 
@@ -164,6 +164,7 @@ export default connect(
   mapDispatchToProps
 )(LinksScreen);
 
+/* contains stylesheet for this component */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

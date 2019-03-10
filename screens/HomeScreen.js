@@ -142,6 +142,7 @@ export default connect(
   mapDispatchToProps
 )(HomeScreen);
 
+/* contains stylesheet for this component */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

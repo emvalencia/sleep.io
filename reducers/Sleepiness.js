@@ -1,9 +1,14 @@
 //-------------------------------------------------------------------------------------------------
 // The Sleepiness Reducer that sets an initial state and chooses actions that update the payload.
 //-------------------------------------------------------------------------------------------------
-import { ACTION_LOG_SLEEP, ACTION_LOG_SLEEPINESS } from '../actions/index';
+import {
+  ACTION_LOG_SLEEP,
+  ACTION_LOG_SLEEPINESS,
+  ACTION_LOG_PROFILE
+} from '../actions/index';
 
 const initialState = {
+  profileData: [],
   sleepData: [],
   sleepinessData: [],
   sleepinessDayCount: {
@@ -21,14 +26,16 @@ const Sleepiness = (state = initialState, action) => {
   console.log('IN SLEEPINESS REDUCER');
 
   switch (action.type) {
+    /* handles logging sleep dates/times */
     case ACTION_LOG_SLEEP:
       console.log('\nlogging sleep.\n');
-
       const { sleepData } = state;
       sleepData.push(action.payload);
       return { ...state, sleepData };
 
+    /* handles logging sleepiness levels and days sleepiness was recorded */
     case ACTION_LOG_SLEEPINESS:
+      console.log('\nlogging sleepiness.\n');
       const { sleepinessData } = state;
       sleepinessData.push(action.payload);
 
@@ -36,6 +43,13 @@ const Sleepiness = (state = initialState, action) => {
       sleepinessDayCount[action.payload.sleepinessDay] += 1;
 
       return { ...state, sleepinessData, sleepinessDayCount };
+
+    /* handles logging profile information */
+    case ACTION_LOG_PROFILE:
+      console.log('\nlogging profile.\n');
+      const { profileData } = state;
+      profileData.push(action.payload);
+      return { ...state, profileData };
 
     default:
       return state;

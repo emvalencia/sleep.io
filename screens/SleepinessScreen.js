@@ -94,17 +94,13 @@ class SleepinessScreen extends React.Component {
   render() {
     const { sleepinessRating } = this.state;
     const { addLogSleepiness } = this.props;
-    console.log('sleepiness :', this.props.SleepinessReducer);
-
     const sliderColor = this.getSliderColor();
-
-    console.log('sliderColor :', sliderColor);
 
     return (
       <View style={styles.container}>
         <View style={styles.help}>
           <ButtonNB transparent light onPress={this.displayInfo}>
-            <Icon name="md-question" />
+            <Icon name="md-help" />
           </ButtonNB>
         </View>
 
@@ -151,8 +147,9 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SleepinessScreen); // <--- call the component here
+)(SleepinessScreen);
 
+/* contains stylesheet for this component */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
