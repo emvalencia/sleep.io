@@ -26,14 +26,14 @@ default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
       
-        <Text style={styles.text}>Search Screen TBD</Text>
+        <Text style={styles.text}>Search Screen</Text>
      <SearchBar
             placeholder = "Search..."
             onChangeText={this.updateSearch} 
             value={search}
 
       />
-       
+
       </View>
     );
   }
