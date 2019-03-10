@@ -11,9 +11,23 @@ import SleepinessScreen from '../screens/SleepinessScreen';
 import LogScreen from '../screens/LogScreen';
 import SearchScreen from '../screens/SearchScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
-});
+const HomeStack = createStackNavigator(
+  {
+    Home: HomeScreen
+  },
+  {
+    initialRouteName: 'Home'
+    // defaultNavigationOptions: {
+    //   headerStyle: {
+    //     backgroundColor: '#b0e0e6'
+    //   },
+    //   headerTintColor: '#906090',
+    //   headerTitleStyle: {
+    //     fontWeight: 'bold'
+    //   }
+    // }
+  }
+);
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
