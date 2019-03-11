@@ -7,24 +7,9 @@ this._handleLogin = () => {
   console.log('Nothing yet!');
 };
 
-export 
-default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
-  state = { search: '',};
-
-  _handleResults(results)
-  {
-    this.setState({results});
-  };
-
-
-  render() {
-    const {search } =this.state;
-  const items = [
+const items = [
   1337,
+  1234,
   'janeway',
   {
     lots: 'of',
@@ -47,21 +32,63 @@ default class HomeScreen extends React.Component {
   [ 4, 2, 'tree' ],
 ];
 
+
+
+
+export 
+default class SearchScreen extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
+
+
+
+ constructor(props)
+ {
+  super(props);
+  this.state = { items, results: []};
+  this._handleResults = this._handleResults.bind(this);
+ }
+  
+
+
+
+_handleResults(results)
+  {
+    this.setState({results});
+  }
+
+
+
+
+  render() {
+
     return (
-      <View style={styles.container}>
+    <View style = {{marginTop:30}}> 
+        <View style={styles.container}>
+          {
+              this.state.results.map((result,i) => {
+                return(
+                  <Text key={i}>
+                      {typeof result === 'object' && !(result instanceof Array) ? 'no results' : result.toString()}
+                  </Text>
+                    );
+              })
+          }
+
       
-        <Text style={styles.text}>Search Screen</Text>
+      </View>  
+        
      <SearchBar
             ref={(ref) => this.searchBar = ref}
             data = {items}
             handleResults={this._handleResults}
-            
             showOnLoad
 
 
       />
-
-      </View>
+      </View>  
+     
     );
   }
 }
@@ -71,7 +98,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#001848'
+    backgroundColor: '#001848',
+    marginTop:90
   },
   text: {
     color: 'white',
