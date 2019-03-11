@@ -33,6 +33,11 @@ class ProfileScreen extends React.Component {
     ]
   };
 
+  /* 
+    TODO: make data look like this and propogate through props
+    data: ['Clinically Insane', 'Kidney Failure', 'HIV']
+  */
+
   /* re-renders the data updated */
   componentDidMount() {
     this.setStateInterval = window.setInterval(() => {
