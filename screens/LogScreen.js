@@ -3,23 +3,19 @@
 //-------------------------------------------------------------------------------------------------
 import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
-import {
-  Text as TextNB,
-  List,
-  ListItem,
-} from 'native-base';
-import {
-  VictoryBar,
-  VictoryChart,
-  VictoryAxis
-} from 'victory-native';
+import { Text as TextNB, List, ListItem } from 'native-base';
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sleepinessActions from '../actions/index';
 
 class LogScreen extends React.Component {
   static navigationOptions = {
-    title: 'My Stats'
+    title: 'My Stats',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    }
   };
 
   constructor(props) {
@@ -79,7 +75,6 @@ class LogScreen extends React.Component {
     const { sleepinessDayCount } = this.props.SleepinessReducer;
 
     const weekAverageMap = new Map();
-
     sleepinessData.forEach((element) => {
       if (weekAverageMap.has(element.sleepinessDay)) {
         weekAverageMap.set(
@@ -92,8 +87,6 @@ class LogScreen extends React.Component {
     });
 
     const { data } = this.state;
-
-    /* pushes data to map */
     weekAverageMap.forEach((value, key, map) => {
       const average = weekAverageMap.get(key) / sleepinessDayCount[key];
       data.push({

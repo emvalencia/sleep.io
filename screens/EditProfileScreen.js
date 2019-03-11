@@ -9,7 +9,7 @@ class EditProfileScreen extends Component {
   state = {
     firstName: null,
     lastName: null,
-    age: 0,
+    age: -1,
     sex: null,
     height: 0,
     weight: 0,
@@ -27,13 +27,16 @@ class EditProfileScreen extends Component {
       weight,
       medicalConditions
     } = this.state;
-    this.props.SleepinessReducer.profileData.firstName = firstName;
-    this.props.SleepinessReducer.profileData.lastName = lastName;
-    this.props.SleepinessReducer.profileData.age = age;
-    this.props.SleepinessReducer.profileData.sex = sex;
-    this.props.SleepinessReducer.profileData.height = height;
-    this.props.SleepinessReducer.profileData.weight = weight;
+
+    /* only update if changes were made to the state */
+    if (firstName != null) this.props.SleepinessReducer.profileData.firstName = firstName;
+    if (lastName != null) this.props.SleepinessReducer.profileData.lastName = lastName;
+    if (age != -1) this.props.SleepinessReducer.profileData.age = age;
+    if (sex != null) this.props.SleepinessReducer.profileData.sex = sex;
+    if (height != 0) this.props.SleepinessReducer.profileData.height = height;
+    if (weight != 0) this.props.SleepinessReducer.profileData.weight = weight;
     this.props.SleepinessReducer.profileData.medicalConditions = medicalConditions;
+    // console.log('Update data: ', this.props.SleepinessReducer.profileData);
   };
 
   render() {
@@ -61,7 +64,7 @@ class EditProfileScreen extends Component {
               <Label>Age</Label>
               <TextInput
                 style={styles.textInput}
-                placeholder="0000"
+                placeholder="35"
                 onChangeText={(text) => this.setState({ age: text })}
               />
             </Item>
@@ -90,12 +93,9 @@ class EditProfileScreen extends Component {
               />
             </Item>
             <Item>
+              {/* TODO: Get an array of medical conditions */}
               <Label>Medical History</Label>
-              <TextInput
-                style={styles.textInput}
-                placeholder="Diabetes"
-                onChangeText={(text) => this.setState({ medicalConditions: text })}
-              />
+              <TextInput style={styles.textInput} placeholder="Diabetes" />
             </Item>
           </Form>
         </Content>

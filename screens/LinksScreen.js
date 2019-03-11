@@ -12,7 +12,11 @@ import * as sleepActions from '../actions/index';
 
 class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'When Did You Sleep?'
+    title: 'When Did You Sleep?',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    }
   };
 
   state = {
