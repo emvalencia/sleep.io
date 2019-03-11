@@ -10,10 +10,26 @@ import LinksScreen from '../screens/LinksScreen';
 import SleepinessScreen from '../screens/SleepinessScreen';
 import LogScreen from '../screens/LogScreen';
 import SearchScreen from '../screens/SearchScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
-});
+const HomeStack = createStackNavigator(
+  {
+    Home: { screen: HomeScreen }
+  },
+  {
+    initialRouteName: 'Home'
+    // defaultNavigationOptions: {
+    //   headerStyle: {
+    //     backgroundColor: '#b0e0e6'
+    //   },
+    //   headerTintColor: '#906090',
+    //   headerTitleStyle: {
+    //     fontWeight: 'bold'
+    //   }
+    // }
+  }
+);
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
@@ -23,7 +39,7 @@ HomeStack.navigationOptions = {
 };
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen
+  Links: { screen: LinksScreen }
 });
 
 LinksStack.navigationOptions = {
@@ -37,7 +53,7 @@ LinksStack.navigationOptions = {
 };
 
 const SleepinessStack = createStackNavigator({
-  Sleepiness: SleepinessScreen
+  Sleepiness: { screen: SleepinessScreen }
 });
 
 SleepinessStack.navigationOptions = {
@@ -51,7 +67,7 @@ SleepinessStack.navigationOptions = {
 };
 
 const LogStack = createStackNavigator({
-  Logs: LogScreen
+  Logs: { screen: LogScreen }
 });
 
 LogStack.navigationOptions = {
@@ -64,8 +80,25 @@ LogStack.navigationOptions = {
   )
 };
 
+const ProfileStack = createStackNavigator({
+  Profile: { screen: ProfileScreen },
+  EditProfile: {
+    screen: EditProfileScreen
+  }
+});
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-person` : 'md-person'}
+    />
+  )
+};
+
 const SearchStack = createStackNavigator({
-  Searches: SearchScreen
+  Searches: { screen: SearchScreen }
 });
 
 SearchStack.navigationOptions = {
@@ -83,5 +116,6 @@ export default createBottomTabNavigator({
   LinksStack,
   SleepinessStack,
   LogStack,
-  SearchStack
+  SearchStack,
+  ProfileStack
 });
