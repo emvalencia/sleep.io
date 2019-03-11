@@ -1,7 +1,7 @@
-//-------------------------------------------------------------------------------------------------
-// SettingsScreen allows you to record your sleepiness by selecting a number from 1-7 in a slider
-// and submits that data to props to be rendered in LogScreen.
-//-------------------------------------------------------------------------------------------------
+/*-------------------------------------------------------------------------------------------------
+ * SettingsScreen allows you to record your sleepiness by selecting a number from 1-7 in a slider
+ * and submits that data to props to be rendered in LogScreen.
+ *-------------------------------------------------------------------------------------------------*/
 import React from 'react';
 import { StyleSheet, Text, View, Slider, Alert, Button } from 'react-native';
 import { Button as ButtonNB, Icon } from 'native-base';
@@ -11,7 +11,11 @@ import * as sleepinessActions from '../actions/index';
 
 class SleepinessScreen extends React.Component {
   static navigationOptions = {
-    title: 'How Are You Feeling Right Now?'
+    title: 'How Are You Feeling Right Now?',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    }
   };
 
   state = {

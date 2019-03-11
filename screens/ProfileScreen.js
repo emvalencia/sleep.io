@@ -9,11 +9,28 @@ import * as profileActions from '../actions/index';
 
 class ProfileScreen extends React.Component {
   static navigationOptions = {
-    title: 'My Account'
+    title: 'My Account',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    }
   };
 
   state = {
-    reload: false
+    /* variable to force reload of props after editing profile*/
+    reload: false,
+    mapCondis: true,
+    data: [
+      {
+        key: 'Clinically Insane'
+      },
+      {
+        key: 'Kidney Failure'
+      },
+      {
+        key: 'HIV'
+      }
+    ]
   };
 
   /* re-renders the data updated */
@@ -31,21 +48,29 @@ class ProfileScreen extends React.Component {
 
   render() {
     const { profileData } = this.props.SleepinessReducer;
+    // console.log('Profile data: ', this.props.SleepinessReducer.profileData);
 
-    // const medCondiMap = new Map();
+    /* push medical conditions from the array into a map */
+    const medCondiMap = new Map();
+    if (profileData.medicalConditions.length != 0) {
+      // console.log('medical conditions: ', profileData.medicalConditions);
+      for (var i in profileData.medicalConditions) {
+        medCondiMap.set('key', profileData.medicalConditions[i]);
+        // console.log('key', profileData.medicalConditions[i]);
+      }
+      // console.log('Attempting to map conditions');
+      // profileData.medicalConditions.forEach((element) => {
+      //   medCondiMap.set('key', element);
+      // });
 
-    // /* push medical conditions from the array into a map */
-    // this.state.medicalConditions.forEach((element) => {
-    //   medCondiMap.set('key', element);
-    // });
-
-    // /* pushes medical conditions onto the data object */
-    // medCondiMap.forEach((value, key, map) => {
-    //   this.state.data.push({
-    //     key,
-    //     value
-    //   });
-    // });
+      // /* pushes medical conditions onto the data object */
+      // medCondiMap.forEach((value, key, map) => {
+      //   this.state.data.push({
+      //     key,
+      //     value
+      //   });
+      // });
+    }
 
     return (
       <View style={styles.container}>
@@ -63,12 +88,12 @@ class ProfileScreen extends React.Component {
             Height: {'\t'}
             {profileData.height} {'\n'}
             Medical Hx: {'\t'}
-            {profileData.medicalConditions.length == 0 ? 'None' : 'Stuff'} {'\n'}
+            {this.state.data.length == 0 ? 'None' : ''}
           </Text>
-          {/* <FlatList
+          <FlatList
             data={this.state.data}
-            renderItem={({ item }) => <Text>{item.key}</Text>}
-          /> */}
+            renderItem={({ item }) => <Text style={styles.listText}>{item.key}</Text>}
+          />
         </View>
         <View style={styles.button}>
           <Button
@@ -125,6 +150,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     padding: 15
+  },
+  listText: {
+    color: 'white',
+    fontSize: 20,
+    paddingLeft: 30
   },
   button: {
     flexDirection: 'column',

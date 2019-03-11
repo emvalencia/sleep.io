@@ -9,12 +9,12 @@ import {
 
 const initialState = {
   profileData: {
-    firstName: 'First',
-    lastName: 'Last',
-    age: 25,
-    sex: 'female',
-    weight: 125,
-    height: 5,
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    age: 30,
+    sex: 'Female',
+    weight: 135,
+    height: 5.8,
     medicalConditions: []
   },
   sleepData: [],

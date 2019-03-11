@@ -9,7 +9,11 @@ import * as sleepinessActions from '../actions/index';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'My Daily Recommendations'
+    title: 'My Daily Recommendations',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    }
   };
 
   constructor(props) {
@@ -30,12 +34,13 @@ class HomeScreen extends React.Component {
     const {
       sleepinessDayCount
     } = this.props.SleepinessReducer; /* contains average sleepiness per day */
+    const { profileData } = this.props.SleepinessReducer;
 
     console.log(sleepinessData);
     console.log(sleepData);
     console.log(sleepinessDayCount);
 
-    /* average sleepiness rating per day -> use for recommendations later 
+    /* average sleepiness rating per day -> use for recommendations later */
     const weekAverageMap = new Map();
     sleepinessData.forEach((element) => {
       if (weekAverageMap.has(element.sleepinessDay)) {
@@ -46,18 +51,7 @@ class HomeScreen extends React.Component {
       } else {
         weekAverageMap.set(element.sleepinessDay, element.sleepinessRating);
       }
-    }); 
-
-    const { data } = this.state;
-
-    weekAverageMap.forEach((value, key, map) => {
-      const average = weekAverageMap.get(key) / sleepinessDayCount[key];
-      data.push({
-        day: key,
-        average
-      });
     });
-    */
 
     /* add total personicle hours for today to total hours */
 
@@ -98,9 +92,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.chartTitle}>
-          _____________________________ {'\n\n'}
-          Recommendations {'\n'}
-          _____________________________ {'\n'}
+          Welcome {profileData.firstName} {'\n'}
         </Text>
         <View style={styles.rec_container}>
           <Text style={styles.text}>
@@ -119,6 +111,9 @@ class HomeScreen extends React.Component {
             Recommended Time #2 {'\n'}
             Recommended Time #3 {'\n'}
           </Text>
+        </View>
+        <View style={styles.rec_container}>
+          <Text style={styles.text}>Other Recommendations? </Text>
         </View>
       </View>
     );
@@ -146,7 +141,6 @@ export default connect(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
     backgroundColor: '#001848',
     marginTop: 0,
     color: 'white',
@@ -156,16 +150,17 @@ const styles = StyleSheet.create({
   rec_container: {
     backgroundColor: 'steelblue',
     padding: 15,
-    borderRadius: 15,
-    marginTop: 15
+    marginTop: 15,
+    borderRadius: 15
   },
   chartTitle: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 30,
+    fontWeight: 'bold',
+    padding: 15,
     marginTop: 0,
     marginBottom: 0,
-    color: '#906090'
+    color: '#14C8B5'
   },
   text: {
     color: 'white',
