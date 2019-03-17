@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#001848',
     color: 'white',
     fontSize: 15,
-    padding: 10,
-    marginTop: 30
+    padding: 20,
+    
   },
   text: {
     color: 'white',
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   searchBar: {
-    padding: 20
+    padding: 10
   }
 });
