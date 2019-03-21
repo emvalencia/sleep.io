@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, TextInput } from 'react-native';
-import { Container, Content, Item, Input, Form, Label } from 'native-base';
+import { StyleSheet, View, Button, Alert, TextInput } from 'react-native';
+import { Container, Content, Item, Form, Label } from 'native-base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as profileActions from '../actions/index';
@@ -37,6 +37,8 @@ class EditProfileScreen extends Component {
     if (weight != 0) this.props.SleepinessReducer.profileData.weight = weight;
     this.props.SleepinessReducer.profileData.medicalConditions = medicalConditions;
     // console.log('Update data: ', this.props.SleepinessReducer.profileData);
+
+    Alert.alert('', 'Successfully update profile info!');
   };
 
   render() {

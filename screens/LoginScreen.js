@@ -8,10 +8,6 @@ import { StyleSheet, Text, View } from 'react-native';
 
 this._handleLogin = () => {
   console.log('Logged in!');
-  /*  TODO: Redirect to actual home screen 
-      How much sleep you've logged so far today,
-      How much sleep/certain times recommended,
-  */
 };
 
 export default class HomeScreen extends React.Component {
@@ -30,7 +26,7 @@ export default class HomeScreen extends React.Component {
             color="#906090"
             style={{ borderRadius: 5 }}
             hardwareAccelerated
-            onPress={() => this._handleLogin}
+            onPress={() => this.props.navigation.navigate('Home')}
           />
         </View>
         <View style={styles.buttonRow}>
