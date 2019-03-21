@@ -129,6 +129,17 @@ class HomeScreen extends React.Component {
           <Text style={styles.text}>Current BMI: {bmi}</Text>
           <Text style={styles.text}>{msg}</Text>
         </View>
+        <View style={styles.rec_container}>
+          <Text style={styles.text}>Other ways to improve your sleep:</Text>
+          <Text style={styles.text}>{'Try to have a regular sleeping schedule.'}</Text>
+          <Text style={styles.text}>{'Avoid sleeping in.'}</Text>
+          <Text style={styles.text}>{'Try and limit naps throughout the day.'}</Text>
+          <Text style={styles.text}>{'Limit screen exposure before bed.'}</Text>
+          <Text style={styles.text}>{'Exercise during the day.'}</Text>
+          <Text style={styles.text}>{'Limit caffeine intake.'}</Text>
+          <Text style={styles.text}>{'Avoid large meals at night.'}</Text>
+          <Text style={styles.text}>{'Try to relax and de-stress before bed.'}</Text>
+        </View>
       </View>
     );
   }
