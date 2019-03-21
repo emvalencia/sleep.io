@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'native-base';
 import { Button, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { StyleSheet, Text, View,ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SearchBar from 'react-native-searchbar';
 import { Linking } from 'react-native';
 import url_db from '../assets/articles/search.js';
@@ -9,7 +9,7 @@ this._handleLogin = () => {
   console.log('Nothing yet!');
 };
 
-var map = new Map(Object.entries(url_db["data"]));
+var map = new Map(Object.entries(url_db['data']));
 /*
 map.set('sleep apnea', ['title', 'https://www.reg.uci.edu/perl/WebSoc']);
 map.set('sleep death syndrome', [
@@ -63,7 +63,11 @@ export default class SearchScreen extends React.Component {
             var link = map.get(result)[1].toString();
             var title = map.get(result)[0].toString();
             return (
-              <Text onPress={() => this._handleLink(link)} style={styles.text, styles.searchResult} key={i}>
+              <Text
+                onPress={() => this._handleLink(link)}
+                style={styles.searchResult}
+                key={i}
+              >
                 {typeof result === 'object' && !(result instanceof Array)
                   ? 'no results'
                   : title}
@@ -82,8 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#001848',
     color: 'white',
     fontSize: 15,
-    padding: 10,
-    
+    padding: 10
   },
   text: {
     color: 'white',
@@ -103,12 +106,12 @@ const styles = StyleSheet.create({
     padding: 0
   },
   searchResult: {
-    margin:20,
-    padding:2,
-    fontSize:22,
-    color:'white',
+    margin: 20,
+    padding: 2,
+    fontSize: 22,
+    color: 'white'
   },
   linkContainer: {
-    marginTop:60,
-  },
+    marginTop: 60
+  }
 });
