@@ -55,7 +55,12 @@ class SleepinessScreen extends React.Component {
     const sleepinessDay = this.convertDay(new Date().getDay());
 
     const { sleepinessRating } = this.state;
-    Alert.alert('', this.state.sleepinessRating > 6 ? ' :( ' : ' :) ');
+    Alert.alert(
+      '',
+      this.state.sleepinessRating > 6
+        ? ' Not a good night huh? '
+        : ' What a good nights rest! '
+    );
 
     addLogSleepiness({ sleepinessRating, sleepinessDate, sleepinessDay });
   };
@@ -68,7 +73,7 @@ class SleepinessScreen extends React.Component {
   };
 
   getSliderColor() {
-    // use switch to get color
+    /* switches the color of the bar */
     console.log('this.state :', this.state);
     const { sleepinessRating } = this.state;
     switch (sleepinessRating) {

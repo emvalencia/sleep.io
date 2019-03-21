@@ -7,6 +7,7 @@ import {
   ACTION_LOG_PROFILE
 } from '../actions/index';
 
+/* holds the initial state */
 const initialState = {
   profileData: {
     firstName: 'Carol',
@@ -31,8 +32,7 @@ const initialState = {
 };
 
 const Sleepiness = (state = initialState, action) => {
-  console.log('IN SLEEPINESS REDUCER');
-
+  /* switch between actions */
   switch (action.type) {
     /* handles logging sleep dates/times */
     case ACTION_LOG_SLEEP:

@@ -65,8 +65,6 @@ class HomeScreen extends React.Component {
         var curr_date = new Date();
 
         if (sleepData[obj].startDay === curr_date.toLocaleDateString()) {
-          console.log('strings are the same');
-
           /* convert start and end dates to objects for comparisons */
           var start_date = new Date();
           var start_time = sleepData[obj].startTime.split(':');
@@ -89,6 +87,24 @@ class HomeScreen extends React.Component {
       this.state.hours_slept_today = 0;
     }
 
+    /* calculates BMI */
+    var bmi = Number(
+      (profileData.weight * 0.453592) / (profileData.height * 0.3048) ** 2
+    ).toFixed(0);
+
+    /* determines which message to return once BMI is calculated */
+    var msg;
+    if (bmi >= 30)
+      msg =
+        'Obese: Your health is at risk. Please consult a physician for further instructions.';
+    else if (bmi >= 25)
+      msg =
+        'Overweight: Your BMI is slightly higher than normal. Please consult a physician for further instructions.';
+    else if (bmi >= 18.5) msg = 'Normal: Your BMI is within a normal, healthy range.';
+    else
+      msg =
+        'Underweight: Your weight is below normal. Please consult a physician for further instructions.';
+
     return (
       <View style={styles.container}>
         <Text style={styles.chartTitle}>
@@ -106,14 +122,12 @@ class HomeScreen extends React.Component {
               ? 0
               : Number(8 - this.state.hours_slept_today).toFixed(1)}{' '}
             hours{'\n'}
-            Recommended Times: {'\n'}
-            Recommended Time #1 {'\n'}
-            Recommended Time #2 {'\n'}
-            Recommended Time #3 {'\n'}
+            Recommended Sleep Times: {'\n'}- {'6:15 PM\n'}- {'7:45 PM\n'}
           </Text>
         </View>
         <View style={styles.rec_container}>
-          <Text style={styles.text}>Other Recommendations? </Text>
+          <Text style={styles.text}>Current BMI: {bmi}</Text>
+          <Text style={styles.text}>{msg}</Text>
         </View>
       </View>
     );
@@ -122,7 +136,6 @@ class HomeScreen extends React.Component {
 
 /* redux implementation */
 function mapStateToProps(state) {
-  console.log('Log screen grabbing mapStateToProps');
   return {
     SleepinessReducer: state.SleepinessReducer
   };
