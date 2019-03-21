@@ -63,7 +63,7 @@ export default class SearchScreen extends React.Component {
             var link = map.get(result)[1].toString();
             var title = map.get(result)[0].toString();
             return (
-              <Text onPress={() => this._handleLink(link)} style={styles.text, styles.searchResult} key={i}>
+              <Text onPress={() => this._handleLink(link)} style={ styles.searchResult} key={i}>
                 {typeof result === 'object' && !(result instanceof Array)
                   ? 'no results'
                   : title}
@@ -102,12 +102,14 @@ const styles = StyleSheet.create({
   searchBar: {
     padding: 0
   },
+  
   searchResult: {
     margin:20,
     padding:2,
     fontSize:22,
     color:'white',
   },
+  
   linkContainer: {
     marginTop:60,
   },
